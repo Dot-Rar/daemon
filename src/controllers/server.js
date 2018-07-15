@@ -532,14 +532,14 @@ class Server extends EventEmitter {
 
             this.emit('crashed');
             this.setStatus(Status.OFF);
-            if (moment.isMoment(this.lastCrash)) {
+            /*if (moment.isMoment(this.lastCrash)) {
                 if (moment(this.lastCrash).add(60, 'seconds').isAfter(moment())) {
                     this.setCrashTime();
                     this.log.warn(props, 'Server detected as crashed but has crashed within the last 60 seconds, aborting reboot.');
                     this.emit('console', `${Ansi.style.red}[Pterodactyl Daemon] Aborting automatic reboot due to crash within the last 60 seconds.`);
                     return;
                 }
-            }
+            }*/
 
             this.log.warn(props, 'Server detected as crashed! Attempting server reboot.');
             this.emit('console', `${Ansi.style.red}[Pterodactyl Daemon] Attempting to reboot server now.`);
