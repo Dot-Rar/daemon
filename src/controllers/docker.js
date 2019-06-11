@@ -570,9 +570,10 @@ class Docker {
                         SecurityOpt: Config.get('docker.policy.container.securityopts', ['no-new-privileges']),
                         ReadonlyRootfs: Config.get('docker.policy.container.readonly_root', true),
                         CapDrop: Config.get('docker.policy.container.cap_drop', [
-                            'setpcap', 'mknod', 'audit_write', 'net_raw', 'dac_override',
+                            'setpcap', 'mknod', 'audit_write', 'dac_override',
                             'fowner', 'fsetid', 'net_bind_service', 'sys_chroot', 'setfcap',
                         ]),
+			CapAdd: ['net_raw', 'net_admin'],
                         NetworkMode: Config.get('docker.network.name', 'pterodactyl_nw'),
                         OomKillDisable: _.get(config, 'oom_disabled', false),
                     },
